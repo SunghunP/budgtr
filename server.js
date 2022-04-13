@@ -19,7 +19,10 @@ app.get('/budgets/', (req, res) => {
 app.get('/budgets/new/',);
 
 // Show route
-app.get('/budgets/:index/',);
+app.get('/budgets/:index/', (req, res) => {
+	const id = req.params.index
+	res.render('budgets_show.ejs', {budgetItem: budgets[id]})
+});
 
 // Create Route
 app.post('/budgets/',);
