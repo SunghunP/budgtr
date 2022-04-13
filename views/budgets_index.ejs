@@ -3,15 +3,23 @@
 <%- include("partials/head.ejs") %> 
 
 <body>
-	<header>
+	<div class="container">
 		<h1>Budgtr</h1>
-	</header>
-	<div>
-		<ul>
+		<table>
 			<% for( let item in budgets ) { %>
-			<li><a href="/bugets/<%= item %> "> <%= budgets[item].name %> </a></li>
+				<tr>
+					<td>
+						<%= budgets[item].date %>
+					</td>
+					<td>
+						<a href="/bugets/<%= item %> "> <%= budgets[item].name %> </a>
+					</td>
+					<td>
+						<%= budgets[item].amount %>
+					</td>
+				</tr>
 			<% } %>
-		</ul>
+		</table>
 	</div>
 </body>
 </html>
