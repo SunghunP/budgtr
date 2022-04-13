@@ -6,6 +6,8 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const budgets = require('./models/budget.js');
 
+// MIDDLEWARE
+app.use("/static", express.static("public"))
 
 // Routes
 // Get route
