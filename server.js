@@ -3,6 +3,7 @@ require('dotenv').config();
 // Dependencies
 const express = require("express");
 const { restart } = require('nodemon');
+const budget = require('./models/budget.js');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const budgets = require('./models/budget.js');
@@ -28,8 +29,11 @@ app.get('/budgets/:index/', (req, res) => {
 	res.render('budgets_show.ejs', {budgetItem: budgets[id]})
 });
 
-// Create Route
+// Post Route
 app.post('/budgets/', (req, res) => {
+	const budgetItem = req.body
+	console.log(budgetItem)
+	budgets.push(budgetItem)
 	res.redirect('/budgets/')
 });
 
